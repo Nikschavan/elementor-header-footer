@@ -538,6 +538,7 @@ class Navigation_Menu extends Widget_Base {
 					'layout'    => [ 'horizontal', 'vertical' ],
 					'dropdown!' => 'none',
 				],
+				'prefix_class'         => 'hfe-nav-responsive-align-',
 				'selectors_dictionary' => [
 					'left'   => 'margin-right: auto',
 					'center' => 'margin: 0 auto',
@@ -1150,7 +1151,7 @@ class Navigation_Menu extends Widget_Base {
 							'type'      => Controls_Manager::COLOR,
 							'default'   => '',
 							'selectors' => [
-								'{{WRAPPER}} .sub-menu a.hfe-sub-menu-item, 
+								'{{WRAPPER}} .sub-menu a.hfe-sub-menu-item,
 								{{WRAPPER}} .elementor-menu-toggle,
 								{{WRAPPER}} nav.hfe-dropdown li a.hfe-menu-item,
 								{{WRAPPER}} nav.hfe-dropdown li a.hfe-sub-menu-item,
@@ -1193,7 +1194,7 @@ class Navigation_Menu extends Widget_Base {
 							'type'      => Controls_Manager::COLOR,
 							'default'   => '',
 							'selectors' => [
-								'{{WRAPPER}} .sub-menu a.hfe-sub-menu-item:hover, 
+								'{{WRAPPER}} .sub-menu a.hfe-sub-menu-item:hover,
 								{{WRAPPER}} .elementor-menu-toggle:hover,
 								{{WRAPPER}} nav.hfe-dropdown li a.hfe-menu-item:hover,
 								{{WRAPPER}} nav.hfe-dropdown li a.hfe-sub-menu-item:hover,
@@ -1236,7 +1237,7 @@ class Navigation_Menu extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '',
 						'selectors' => [
-							'{{WRAPPER}} .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active,	
+							'{{WRAPPER}} .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active,
 							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-item a.hfe-menu-item,
 							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-ancestor a.hfe-menu-item,
 							{{WRAPPER}} nav.hfe-dropdown .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active
@@ -1253,7 +1254,7 @@ class Navigation_Menu extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '',
 						'selectors' => [
-							'{{WRAPPER}} .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active,	
+							'{{WRAPPER}} .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active,
 							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-item a.hfe-menu-item,
 							{{WRAPPER}} nav.hfe-dropdown .menu-item.current-menu-ancestor a.hfe-menu-item,
 							{{WRAPPER}} nav.hfe-dropdown .sub-menu .menu-item.current-menu-item a.hfe-sub-menu-item.hfe-sub-menu-item-active' => 'background-color: {{VALUE}}',
@@ -1287,7 +1288,7 @@ class Navigation_Menu extends Widget_Base {
 				Group_Control_Border::get_type(),
 				[
 					'name'     => 'dropdown_border',
-					'selector' => '{{WRAPPER}} nav.hfe-nav-menu__layout-horizontal .sub-menu, 
+					'selector' => '{{WRAPPER}} nav.hfe-nav-menu__layout-horizontal .sub-menu,
 							{{WRAPPER}} nav:not(.hfe-nav-menu__layout-horizontal) .sub-menu.sub-menu-open,
 							{{WRAPPER}} nav.hfe-dropdown .hfe-nav-menu,
 						 	{{WRAPPER}} nav.hfe-dropdown-expandible .hfe-nav-menu',
@@ -1444,7 +1445,7 @@ class Navigation_Menu extends Widget_Base {
 						'dashed' => __( 'Dashed', 'header-footer-elementor' ),
 					],
 					'selectors'   => [
-						'{{WRAPPER}} .sub-menu li.menu-item:not(:last-child), 
+						'{{WRAPPER}} .sub-menu li.menu-item:not(:last-child),
 						{{WRAPPER}} nav.hfe-dropdown li.menu-item:not(:last-child),
 						{{WRAPPER}} nav.hfe-dropdown-expandible li.menu-item:not(:last-child)' => 'border-bottom-style: {{VALUE}};',
 					],
@@ -1457,7 +1458,7 @@ class Navigation_Menu extends Widget_Base {
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '#c4c4c4',
 					'selectors' => [
-						'{{WRAPPER}} .sub-menu li.menu-item:not(:last-child), 
+						'{{WRAPPER}} .sub-menu li.menu-item:not(:last-child),
 						{{WRAPPER}} nav.hfe-dropdown li.menu-item:not(:last-child),
 						{{WRAPPER}} nav.hfe-dropdown-expandible li.menu-item:not(:last-child)' => 'border-bottom-color: {{VALUE}};',
 					],
@@ -1482,7 +1483,7 @@ class Navigation_Menu extends Widget_Base {
 						'unit' => 'px',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .sub-menu li.menu-item:not(:last-child), 
+						'{{WRAPPER}} .sub-menu li.menu-item:not(:last-child),
 						{{WRAPPER}} nav.hfe-dropdown li.menu-item:not(:last-child),
 						{{WRAPPER}} nav.hfe-dropdown-expandible li.menu-item:not(:last-child)' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
 					],
@@ -1937,14 +1938,14 @@ class Navigation_Menu extends Widget_Base {
 			?>
 			<div class="hfe-nav-menu__toggle elementor-clickable hfe-flyout-trigger" tabindex="0">
 					<div class="hfe-nav-menu-icon">
-						<?php echo isset( $menu_close_icons[0] ) ? $menu_close_icons[0] : ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> 
+						<?php echo isset( $menu_close_icons[0] ) ? $menu_close_icons[0] : ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</div>
 				</div>
 			<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'hfe-flyout' ) ); ?> >
 				<div class="hfe-flyout-overlay elementor-clickable"></div>
 				<div class="hfe-flyout-container">
 					<div id="hfe-flyout-content-id-<?php echo esc_attr( $this->get_id() ); ?>" class="hfe-side hfe-flyout-<?php echo esc_attr( $settings['flyout_layout'] ); ?> hfe-flyout-open" data-layout="<?php echo wp_kses_post( $settings['flyout_layout'] ); ?>" data-flyout-type="<?php echo wp_kses_post( $settings['flyout_type'] ); ?>">
-						<div class="hfe-flyout-content push">						
+						<div class="hfe-flyout-content push">
 							<nav <?php echo wp_kses_post( $this->get_render_attribute_string( 'hfe-nav-menu' ) ); ?>><?php echo $menu_html; ?></nav>
 							<div class="elementor-clickable hfe-flyout-close" tabindex="0">
 								<?php echo isset( $menu_close_icons[1] ) ? $menu_close_icons[1] : ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -1952,7 +1953,7 @@ class Navigation_Menu extends Widget_Base {
 						</div>
 					</div>
 				</div>
-			</div>				
+			</div>
 			<?php
 		} else {
 			$this->add_render_attribute(
@@ -2015,7 +2016,7 @@ class Navigation_Menu extends Widget_Base {
 						<?php echo isset( $menu_close_icons[0] ) ? $menu_close_icons[0] : ''; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</div>
 				</div>
-				<nav <?php echo $this->get_render_attribute_string( 'hfe-nav-menu' ); ?>><?php echo $menu_html; ?></nav>              
+				<nav <?php echo $this->get_render_attribute_string( 'hfe-nav-menu' ); ?>><?php echo $menu_html; ?></nav>
 			</div>
 			<?php
 		}

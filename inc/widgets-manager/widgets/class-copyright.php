@@ -139,9 +139,9 @@ class Copyright extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'     => __( 'Alignment', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
+				'label'        => __( 'Alignment', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'options'      => [
 					'left'   => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-left',
@@ -155,7 +155,8 @@ class Copyright extends Widget_Base {
 						'icon'  => 'fa fa-align-right',
 					],
 				],
-				'selectors' => [
+				'prefix_class' => 'hfe-copyright-align-',
+				'selectors'    => [
 					'{{WRAPPER}} .hfe-copyright-wrapper' => 'text-align: {{VALUE}};',
 				],
 			]

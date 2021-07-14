@@ -251,9 +251,9 @@ class Page_Title extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'     => __( 'Alignment', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
+				'label'        => __( 'Alignment', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'options'      => [
 					'left'    => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'eicon-text-align-left',
@@ -271,8 +271,9 @@ class Page_Title extends Widget_Base {
 						'icon'  => 'eicon-text-align-justify',
 					],
 				],
-				'default'   => '',
-				'selectors' => [
+				'default'      => '',
+				'prefix_class' => 'hfe-page-title-align-',
+				'selectors'    => [
 					'{{WRAPPER}} .hfe-page-title-wrapper' => 'text-align: {{VALUE}};',
 				],
 			]
@@ -425,7 +426,7 @@ class Page_Title extends Widget_Base {
 		}
 
 		$heading_size_tag = Widgets_Loader::validate_html_tag( $settings['heading_tag'] );
-		?>		
+		?>
 		<div class="hfe-page-title hfe-page-title-wrapper elementor-widget-heading">
 
 		<?php
@@ -441,7 +442,7 @@ class Page_Title extends Widget_Base {
 				<?php if ( '' !== $settings['new_page_title_select_icon']['value'] ) { ?>
 						<span class="hfe-page-title-icon">
 							<?php \Elementor\Icons_Manager::render_icon( $settings['new_page_title_select_icon'], [ 'aria-hidden' => 'true' ] ); ?>             </span>
-				<?php } ?>				
+				<?php } ?>
 				<?php if ( '' != $settings['before'] ) { ?>
 					<?php echo wp_kses_post( $settings['before'] ); ?>
 					<?php
@@ -456,8 +457,8 @@ class Page_Title extends Widget_Base {
 				if ( '' != $settings['after'] ) {
 					?>
 					<?php echo wp_kses_post( $settings['after'] ); ?>
-				<?php } ?>  
-			</<?php echo $heading_size_tag; ?> > 
+				<?php } ?>
+			</<?php echo $heading_size_tag; ?> >
 			<?php if ( ( '' != $head_link_url && 'custom' === $head_custom_link ) || 'default' === $head_custom_link ) { ?>
 						</a>
 			<?php } ?>
@@ -489,7 +490,7 @@ class Page_Title extends Widget_Base {
 
 		var headingSizeTag = settings.heading_tag;
 
-		if ( typeof elementor.helpers.validateHTMLTag === "function" ) { 
+		if ( typeof elementor.helpers.validateHTMLTag === "function" ) {
 			headingSizeTag = elementor.helpers.validateHTMLTag( settings.heading_tag );
 		} else if( HfeWidgetsData.allowed_tags ) {
 			headingSizeTag = HfeWidgetsData.allowed_tags.includes( headingSizeTag.toLowerCase() ) ? headingSizeTag : 'div';
@@ -500,10 +501,10 @@ class Page_Title extends Widget_Base {
 			<# if ( '' != settings.page_heading_link.url ) { #>
 					<a {{{ view.getRenderAttributeString( 'url' ) }}} >
 			<# } #>
-			<{{{ headingSizeTag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">		
+			<{{{ headingSizeTag }}} class="elementor-heading-title elementor-size-{{{ settings.size }}}">
 				<# if( '' != settings.new_page_title_select_icon.value ){ #>
 					<span class="hfe-page-title-icon" data-elementor-setting-key="page_title" data-elementor-inline-editing-toolbar="basic">
-						{{{iconHTML.value}}}                    
+						{{{iconHTML.value}}}
 					</span>
 				<# } #>
 					<# if ( '' != settings.before ) { #>
@@ -518,11 +519,11 @@ class Page_Title extends Widget_Base {
 					?>
 					<# if ( '' != settings.after ) { #>
 						{{{ settings.after }}}
-					<# } #>				
+					<# } #>
 			</{{{ headingSizeTag }}}>
 			<# if ( '' != settings.page_heading_link.url ) { #>
 					</a>
-			<# } #>			
+			<# } #>
 		</div>
 		<?php
 	}

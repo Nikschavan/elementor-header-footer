@@ -175,9 +175,9 @@ class Site_Tagline extends Widget_Base {
 		$this->add_responsive_control(
 			'heading_text_align',
 			[
-				'label'     => __( 'Alignment', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
+				'label'        => __( 'Alignment', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'options'      => [
 					'left'    => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-left',
@@ -195,7 +195,8 @@ class Site_Tagline extends Widget_Base {
 						'icon'  => 'fa fa-align-justify',
 					],
 				],
-				'selectors' => [
+				'prefix_class' => 'hfe-site-tagline-align-',
+				'selectors'    => [
 					'{{WRAPPER}} .hfe-site-tagline' => 'text-align: {{VALUE}};',
 				],
 			]
@@ -278,7 +279,7 @@ class Site_Tagline extends Widget_Base {
 		<div class="hfe-site-tagline hfe-site-tagline-wrapper">
 			<?php if ( '' !== $settings['icon']['value'] ) { ?>
 				<span class="hfe-icon">
-					<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>					
+					<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>
 				</span>
 			<?php } ?>
 			<span>
@@ -312,12 +313,12 @@ class Site_Tagline extends Widget_Base {
 		<div class="hfe-site-tagline hfe-site-tagline-wrapper">
 			<# if( '' != settings.icon.value ){ #>
 				<span class="hfe-icon">
-					{{{iconHTML.value}}}					
+					{{{iconHTML.value}}}
 				</span>
 			<# } #>
 			<span>
 			<#if ( '' != settings.before ){#>
-				{{{ settings.before}}} 
+				{{{ settings.before}}}
 			<#}#>
 			<?php echo wp_kses_post( get_bloginfo( 'description' ) ); ?>
 			<# if ( '' != settings.after ){#>

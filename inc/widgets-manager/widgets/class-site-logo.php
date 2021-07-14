@@ -169,9 +169,9 @@ class Site_Logo extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'     => __( 'Alignment', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
+				'label'        => __( 'Alignment', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'options'      => [
 					'left'   => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-left',
@@ -185,8 +185,9 @@ class Site_Logo extends Widget_Base {
 						'icon'  => 'fa fa-align-right',
 					],
 				],
-				'default'   => 'center',
-				'selectors' => [
+				'default'      => 'center',
+				'prefix_class' => 'hfe-site-logo-align-',
+				'selectors'    => [
 					'{{WRAPPER}} .hfe-site-logo-container, {{WRAPPER}} .hfe-caption-width figcaption' => 'text-align: {{VALUE}};',
 				],
 			]
@@ -833,7 +834,7 @@ class Site_Logo extends Widget_Base {
 		}
 
 		?>
-			<div class="hfe-site-logo-set">           
+			<div class="hfe-site-logo-set">
 				<div class="hfe-site-logo-container">
 					<img class="hfe-site-logo-img <?php echo esc_attr( $class_animation ); ?>"  src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( Control_Media::get_image_alt( $settings['custom_image'] ) ); ?>"/>
 				</div>
@@ -846,13 +847,13 @@ class Site_Logo extends Widget_Base {
 			$caption_text = $this->get_caption( $settings );
 			?>
 			<?php if ( ! empty( $caption_text ) ) : ?>
-					<div class="hfe-caption-width"> 
+					<div class="hfe-caption-width">
 						<figcaption class="widget-image-caption wp-caption-text"><?php echo wp_kses_post( $caption_text ); ?></figcaption>
 					</div>
 			<?php endif; ?>
 				</figure>
 		<?php endif; ?>
-		</div>  
+		</div>
 			<?php
 	}
 

@@ -164,9 +164,9 @@ class Retina extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'     => __( 'Alignment', 'header-footer-elementor' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
+				'label'        => __( 'Alignment', 'header-footer-elementor' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'options'      => [
 					'left'   => [
 						'title' => __( 'Left', 'header-footer-elementor' ),
 						'icon'  => 'fa fa-align-left',
@@ -180,8 +180,9 @@ class Retina extends Widget_Base {
 						'icon'  => 'fa fa-align-right',
 					],
 				],
-				'default'   => 'center',
-				'selectors' => [
+				'default'      => 'center',
+				'prefix_class' => 'hfe-retina-img-align-',
+				'selectors'    => [
 					'{{WRAPPER}} .hfe-retina-image-container, {{WRAPPER}} .hfe-caption-width' => 'text-align: {{VALUE}};',
 				],
 			]
@@ -808,13 +809,13 @@ class Retina extends Widget_Base {
 				$caption_text = $this->get_caption( $settings );
 				?>
 				<?php if ( ! empty( $caption_text ) ) : ?>
-					<div class="hfe-caption-width"> 
+					<div class="hfe-caption-width">
 						<figcaption class="widget-image-caption wp-caption-text"><?php echo $caption_text; ?></figcaption>
 					</div>
 				<?php endif; ?>
 				</figure>
 			<?php endif; ?>
-		</div> 
+		</div>
 		<?php
 	}
 
