@@ -90,7 +90,7 @@ class Header_Footer_Elementor {
 			}
 
 			if ( 'yes' === get_option( 'hfe_plugin_is_activated' ) ) {
-				add_action( 'admin_notices', [ $this, 'show_setup_wizard' ] );
+				add_action( 'admin_init', [ $this, 'show_setup_wizard' ] );
 			}
 
 			// Scripts and styles.
@@ -104,7 +104,7 @@ class Header_Footer_Elementor {
 			add_shortcode( 'hfe_template', [ $this, 'render_template' ] );
 
 			add_action( 'astra_notice_before_markup_header-footer-elementor-rating', [ $this, 'rating_notice_css' ] );
-			add_action( 'admin_notices', [ $this, 'register_notices' ] );
+			add_action( 'admin_init', [ $this, 'register_notices' ] );
 
 			// BSF Analytics Tracker.
 			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
@@ -148,6 +148,7 @@ class Header_Footer_Elementor {
 	 */
 	public function register_notices() {
 		$image_path = HFE_URL . 'assets/images/header-footer-elementor-icon.svg';
+
 		Astra_Notices::add_notice(
 			[
 				'id'                         => 'header-footer-elementor-rating',
